@@ -56,23 +56,6 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-  // This solution uses a feature of JavaScript called a
-    // closure. Each time we run the loop, it will create
-    // a new variable called addedMessageTimeoutId and do
-    // button.addEventListener().
-    //
-    // Then, because of closure, the function we give to
-    // button.addEventListener() will get a unique copy
-    // of the addedMessageTimeoutId variable and it will
-    // keep this copy of the variable forever.
-    // (Reminder: closure = if a function has access to a
-    // value/variable, it will always have access to that
-    // value/variable).
-    //
-    // This allows us to create many unique copies of the
-    // addedMessageTimeoutId variable (one for every time
-    // we run the loop) so it lets us keep track of many
-    // timeoutIds (one for each product).
     let addedMessageTimeoutId;
 
 document.querySelectorAll('.js-add-to-cart')
@@ -118,8 +101,6 @@ document.querySelectorAll('.js-add-to-cart')
 
       addedMessage.classList.add('added-visible');
 
-      // Check if a previous timeoutId exists. If it does,
-      // we will stop it.
       if (addedMessageTimeoutId) {
         clearTimeout(addedMessageTimeoutId);
       }
@@ -128,7 +109,6 @@ document.querySelectorAll('.js-add-to-cart')
         addedMessage.classList.remove('added-to-cart-visible');
       }, 2000);
 
-      // Save the timeoutId so we can stop it later.
       addedMessageTimeoutId = timeoutId;
     });
   });
