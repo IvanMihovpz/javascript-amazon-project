@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import { products } from '../data/products.js';
 
 let productsHTML = '';
 
@@ -107,7 +108,7 @@ document.querySelectorAll('.js-add-to-cart')
       }
 
       const timeoutId = setTimeout(() => {
-        addedMessage.classList.remove('added-to-cart-visible');
+        addedMessage.classList.remove('added-visible');
       }, 2000);
 
       addedMessageTimeoutId = timeoutId;
